@@ -21,6 +21,6 @@ include('view.php');
 $model = new model;
 
 
-echo json_encode($model->variable);
+show($model->variable);
 
 ?>

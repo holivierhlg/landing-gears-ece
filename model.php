@@ -66,9 +66,17 @@ class model
             $this->variable['emergencyHydraulicCircuit'] = $_SESSION['variables']['emergencyHydraulicCircuit'];
 
         }
-
-
     }
 
+    function returnData()
+    {
+        return $this->variable;
+    }
+
+    function saveData($dataTable)
+    {
+        $this->variable = $dataTable;
+        $_SESSION['variables'] = $dataTable;
+    }
 }
 ?>

@@ -26,26 +26,8 @@ class model
         session_start();
         if ($_SESSION['variables']['set'] != 1) {
 
-            $this->variable['gearsHandle'] = 0; // 0 : up, 1 : down
+            $this->toNull();
 
-            $this->variable['light']['green'] = 0; // 0 : off, 1 : on
-            $this->variable['light']['yellow'] = 0;
-            $this->variable['light']['red'] = 0;
-
-            $this->variable['gears']['front'] = 0; // 0 : locked up, 1 : maneuvering, 2 : locked down
-            $this->variable['gears']['left'] = 0;
-            $this->variable['gears']['right'] = 0;
-
-            $this->variable['doors']['front'] = 0; // 0 : closed, 1 : maneuvering, 2 : open
-            $this->variable['doors']['left'] = 0;
-            $this->variable['doors']['right'] = 0;
-
-
-            $this->variable['emergencyHydraulicCircuit'] = 0; // 0 : off, 1 : activated and locked
-
-            $this->variable['set'] = 1;
-
-            $_SESSION['variables'] = $this->variable;
         }
         else{
             $this->variable['gearsHandle'] = $_SESSION['variables']['gearsHandle'];
@@ -77,6 +59,30 @@ class model
     {
         $this->variable = $dataTable;
         $_SESSION['variables'] = $dataTable;
+    }
+
+    function toNull()
+    {
+        $this->variable['gearsHandle'] = 0; // 0 : up, 1 : down
+
+        $this->variable['light']['green'] = 0; // 0 : off, 1 : on
+        $this->variable['light']['yellow'] = 0;
+        $this->variable['light']['red'] = 0;
+
+        $this->variable['gears']['front'] = 0; // 0 : locked up, 1 : maneuvering, 2 : locked down
+        $this->variable['gears']['left'] = 0;
+        $this->variable['gears']['right'] = 0;
+
+        $this->variable['doors']['front'] = 0; // 0 : closed, 1 : maneuvering, 2 : open
+        $this->variable['doors']['left'] = 0;
+        $this->variable['doors']['right'] = 0;
+
+
+        $this->variable['emergencyHydraulicCircuit'] = 0; // 0 : off, 1 : activated and locked
+
+        $this->variable['set'] = 1;
+
+        $_SESSION['variables'] = $this->variable;
     }
 }
 ?>

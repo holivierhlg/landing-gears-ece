@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Landing Gears</title>
+
+    <link rel="stylesheet" href="style.css"/>
+
+</head>
+<body>
+
 <?php
 /**
  * Created by PhpStorm.
@@ -19,7 +29,7 @@ function show($dataTable){
 ?>
 <table>
     <tr>
-        <td><img src="./img/light<?php echo $dataTable['light'] ?>.jpg"/></td>
+        <td id="light" ><img <?php if($dataTable['light']==2) echo 'class="blink"' ?>src="./img/light<?php echo $dataTable['light'] ?>.jpg"/></td>
         <td style="padding-left:200px;">
             <form action="index.php" method="post">
                 <input type="hidden" name="action" value="up">
@@ -70,3 +80,4 @@ function show($dataTable){
 }
 
 ?>
+</body>

@@ -23,7 +23,10 @@ class model
     function __construct()
     {
         //initializing variables
-        session_start();
+        if(!isset($_COOKIE["PHPSESSID"]))
+        {
+            session_start();
+        }
         if (!isset($_SESSION['variables']['set'])) {
 
             $this->toNull();

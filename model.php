@@ -24,7 +24,7 @@ class model
     {
         //initializing variables
         session_start();
-        if ($_SESSION['variables']['set'] != 1) {
+        if (!isset($_SESSION['variables']['set'])) {
 
             $this->toNull();
 

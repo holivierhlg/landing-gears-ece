@@ -20,7 +20,20 @@ include('view.php');
 
 $model = new model;
 
+if(isset($_POST['action']))
+{
+    if($_POST['action'] == "up")
+    {
+        $model->up();
+    }
+    else if($_POST['action'] == "down")
+    {
+        $model->down();
+    }
+}
 
 show($model->variable);
+
+
 
 ?>

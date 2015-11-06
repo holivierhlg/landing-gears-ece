@@ -32,9 +32,8 @@ class model
         else{
             $this->variable['gearsHandle'] = $_SESSION['variables']['gearsHandle'];
 
-            $this->variable['light']['green'] = $_SESSION['variables']['light']['green'];
-            $this->variable['light']['yellow'] = $_SESSION['variables']['light']['yellow'];
-            $this->variable['light']['red'] = $_SESSION['variables']['light']['red'];
+            $this->variable['light'] = $_SESSION['variables']['light'];
+
 
             $this->variable['gears']['front'] = $_SESSION['variables']['gears']['front'];
             $this->variable['gears']['left'] = $_SESSION['variables']['gears']['left'];
@@ -65,9 +64,8 @@ class model
     {
         $this->variable['gearsHandle'] = 0; // 0 : up, 1 : down
 
-        $this->variable['light']['green'] = 0; // 0 : off, 1 : on
-        $this->variable['light']['yellow'] = 0;
-        $this->variable['light']['red'] = 0;
+        $this->variable['light'] = 0; // 0 : off, 1 : green, 2 : yellow, 3 : red
+
 
         $this->variable['gears']['front'] = 0; // 0 : locked up, 1 : maneuvering, 2 : locked down
         $this->variable['gears']['left'] = 0;
@@ -83,6 +81,16 @@ class model
         $this->variable['set'] = 1;
 
         $_SESSION['variables'] = $this->variable;
+    }
+
+    function up()
+    {
+
+    }
+
+    function down()
+    {
+
     }
 }
 ?>

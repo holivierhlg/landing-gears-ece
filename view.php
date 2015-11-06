@@ -48,32 +48,28 @@ function show($dataTable){
         <td></td>
         <td><center><h2>Doors</h2></center></td>
         <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>Front<br><img src="./img/door2_<?php echo $dataTable['doors']['front']?>.jpg"></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Left<br><img src="./img/door2_<?php echo $dataTable['doors']['left']?>.jpg"></td>
-        <td></td>
-        <td>Right<br><img src="./img/door2_<?php echo $dataTable['doors']['right']?>.jpg"></td>
-    </tr>
-    <tr>
         <td></td>
         <td><center><h2>Gears</h2></center></td>
         <td></td>
     </tr>
     <tr>
         <td></td>
+        <td>Front<br><img src="./img/door2_<?php echo $dataTable['doors']['front']?>.jpg"></td>
+        <td></td>
+        <td></td>
         <td>Front<br><img src="./img/gear2_<?php echo $dataTable['gears']['front']?>.jpg"></td>
         <td></td>
+
     </tr>
     <tr>
-        <td>Left<br><img src="./img/gear2_<?php echo $dataTable['gears']['left']?>.jpg"></td>
+        <td>Left<br><img src="./img/door2_<?php echo $dataTable['doors']['left']?>.jpg"></td>
+        <td></td>
+        <td>Right<br><img src="./img/door2_<?php echo $dataTable['doors']['right']?>.jpg"></td>
+        <td style="padding-left: 150px;">Left<br><img src="./img/gear2_<?php echo $dataTable['gears']['left']?>.jpg"></td>
         <td></td>
         <td>Right<br><img src="./img/gear2_<?php echo $dataTable['gears']['right']?>.jpg"></td>
     </tr>
+
 
 </table>
 <?php

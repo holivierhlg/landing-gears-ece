@@ -22,12 +22,8 @@ class model
 
     function __construct()
     {
-        //initializing variables
-        if(!isset($_COOKIE["PHPSESSID"]))
-        {
-            session_start();
-        }
-        if (!isset($_SESSION['variables']['set'])) {
+
+        if (!isset($_SESSION['variables']['set']) || $_SESSION['variables']['set'] != 1) {
 
             $this->toNull();
 
@@ -45,6 +41,10 @@ class model
             $this->variable['doors']['front'] = $_SESSION['variables']['doors']['front'];
             $this->variable['doors']['left'] = $_SESSION['variables']['doors']['left'];
             $this->variable['doors']['right'] = $_SESSION['variables']['doors']['right'];
+
+            $this->variable['direction'] = $_SESSION['variables']['direction'];
+
+            $this->variable['set'] = $_SESSION['variables']['set'];
 
 
             $this->variable['emergencyHydraulicCircuit'] = $_SESSION['variables']['emergencyHydraulicCircuit'];
@@ -78,6 +78,8 @@ class model
         $this->variable['doors']['left'] = 0;
         $this->variable['doors']['right'] = 0;
 
+        $this->variable['direction'] = 0; //0 none, 1 down, 2 up
+
 
         $this->variable['emergencyHydraulicCircuit'] = 0; // 0 : off, 1 : activated and locked
 
@@ -86,14 +88,85 @@ class model
         $_SESSION['variables'] = $this->variable;
     }
 
+    function openDoors($direction)
+    {
+        $this->variable['light'] = 2;
+        $this->variable['doors']['front'] = 1; // 0 : closed, 1 : maneuvering, 2 : open
+        $this->variable['doors']['left'] = 1;
+        $this->variable['doors']['right'] = 1;
+        $this->variable['direction'] = $direction;
+
+        $_SESSION['variables'] = $this->variable;
+
+
+    }
+
+    function doorsOpened()
+    {
+        $this->variable['light'] = 2;
+        $this->variable['doors']['front'] = 2; // 0 : closed, 1 : maneuvering, 2 : open
+        $this->variable['doors']['left'] = 2;
+        $this->variable['doors']['right'] = 2;
+
+        $_SESSION['variables'] = $this->variable;
+
+
+    }
+
+    function closingDoors()
+    {
+        $this->variable['light'] = 2;
+        $this->variable['doors']['front'] = 1; // 0 : closed, 1 : maneuvering, 2 : open
+        $this->variable['doors']['left'] = 1;
+        $this->variable['doors']['right'] = 1;
+
+        $_SESSION['variables'] = $this->variable;
+    }
+
+    function doorsClosed($light)
+    {
+        $this->variable['light'] = $light;
+        $this->variable['doors']['front'] = 0; // 0 : closed, 1 : maneuvering, 2 : open
+        $this->variable['doors']['left'] = 0;
+        $this->variable['doors']['right'] = 0;
+
+        $_SESSION['variables'] = $this->variable;
+    }
+
+    function gearsMoving()
+    {
+        $this->variable['light'] = 2;
+        $this->variable['gears']['front'] = 1;
+        $this->variable['gears']['left'] = 1;
+        $this->variable['gears']['right'] = 1;
+
+        $_SESSION['variables'] = $this->variable;
+
+
+    }
+
     function up()
     {
+        $this->variable['light'] = 2;
+        $this->variable['gears']['front'] = 0;
+        $this->variable['gears']['left'] = 0;
+        $this->variable['gears']['right'] = 0;
 
+        $this->variable['direction'] = 0;
+
+        $_SESSION['variables'] = $this->variable;
     }
 
     function down()
     {
+        $this->variable['light'] = 2;
+        $this->variable['gears']['front'] = 2;
+        $this->variable['gears']['left'] = 2;
+        $this->variable['gears']['right'] = 2;
 
+        $this->variable['direction'] = 0;
+
+        $_SESSION['variables'] = $this->variable;
     }
 }
 ?>

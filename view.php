@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<head>
-    <meta charset="UTF-8" />
-    <title>Landing Gears</title>
 
-    <link rel="stylesheet" href="style.css"/>
-
-</head>
-<body>
 
 <?php
 /**
